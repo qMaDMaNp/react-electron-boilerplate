@@ -1,0 +1,33 @@
+body {
+  font-family: Bahnschrift;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+h1 {
+  padding-bottom: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__item {}
+  &__cart-btn {}
+}
+
+.todo-input {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.todo-save-btn {
+  background: dodgerblue;
+  border: 1px solid dodgerblue;
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: white;
+}
