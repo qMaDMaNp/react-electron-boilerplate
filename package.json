@@ -5,14 +5,12 @@
   "homepage": "./",
   "private": true,
   "scripts": {
-    "start": "PORT=3006 react-scripts start",
+    "start": "PORT=3000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron:dev": "npx concurrently -k \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3006 && electronmon .\"",
-    "electron:start": "electron .",
-    "electron:serve": "npx electron .",
-    "electron:package:mac": "npm run build && electron-builder -m -c.extraMetadata.main=electron/electron.js"
+    "e:dev": "npx concurrently -k \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && npm start --prefix ./server\" \"electronmon .\"",
+    "e:package:mac": "npm run build && electron-builder -m -c.extraMetadata.main=electron/main.js"
   },
   "build": {
     "appId": "com.supportfleetapp.app",

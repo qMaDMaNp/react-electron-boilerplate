@@ -1,8 +1,8 @@
-import {useState, FC} from 'react';
+import {useState, FC, useEffect} from 'react';
 import './App.scss';
 import TodoList from "../../components/TodoList/TodoList";
 import { useAppDispatch, useAppSelector } from '../../hooks/StoreHook';
-import { addTodo } from '../../store/slices/todoSlice';
+import {addTodo, getTodosAsync} from '../../store/slices/todoSlice';
 import {ITodoItem} from "../../entities/TodoItem";
 
 
@@ -23,6 +23,10 @@ const App: FC = () => {
         dispatch(addTodo({title: inputText}));
         setInputText('');
     };
+
+    useEffect(() => {
+        dispatch(getTodosAsync());
+    }, [dispatch])
 
     return (
         <div className="App">

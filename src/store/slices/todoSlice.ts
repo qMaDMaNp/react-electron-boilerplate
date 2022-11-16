@@ -11,10 +11,10 @@ const initialState: ITodoSliceState = {
     todos: []
 };
 
-export const getTodosAsync = createAsyncThunk<ITodoItem[], string>(
+export const getTodosAsync = createAsyncThunk<ITodoItem[]>(
     'todos/getTodosAsync',
     async () => {
-        const response = await fetch(`http://localhost:7000/todos`);
+        const response = await fetch(`http://localhost:7700/todos`);
         let todos: ITodoItem[] = [];
 
         if (response.ok) {
@@ -52,8 +52,7 @@ const todoSlice = createSlice({
 //https://www.youtube.com/watch?v=fiesH6WU63I&t=3014s&ab_channel=ChrisBlakely
     extraReducers: builder => {
         builder.addCase(getTodosAsync.fulfilled, (state, action) => {
-            //@ts-ignore
-            return action.payload.todos
+            return {todos: action.payload};
         })
     }
 });
